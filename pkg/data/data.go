@@ -22,9 +22,9 @@ func MapToBatchMutation(objects *[]map[string]interface{}) *[]BatchMutation {
 
 	batchMutations := []BatchMutation{}
 	batchMutation := BatchMutation{}
-	for _, element := range *objects {
+	for index, element := range *objects {
 		batchMutation.Mutation = append(batchMutation.Mutation, spanner.InsertOrUpdateMap(table, element))
-		if len(batchMutation.Mutation) == 1000 {
+		if (len(batchMutation.Mutation) == 1000) || (index == len((*objects))-1) {
 			batchMutations = append(batchMutations, batchMutation)
 			batchMutation = BatchMutation{}
 		}
