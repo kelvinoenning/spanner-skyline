@@ -67,8 +67,7 @@ func Write(mutations []*spanner.Mutation, credentials []byte) bool {
 }
 
 func worker(credentials []byte, job chan []*spanner.Mutation, done chan bool, wg *sync.WaitGroup) {
-	run := true
-	for run == true {
+	for {
 		select {
 		case k := <-job:
 			result := Write(k, credentials)
