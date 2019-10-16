@@ -1,6 +1,6 @@
-# Spanner Skyline
+# Spanner Skyline [WIP]
 
-[WIP]...
+This project uploads local files to Google Cloud Spanner
 
 ## Examples
 
